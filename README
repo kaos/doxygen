@@ -1,3 +1,15 @@
+====
+NOTE
+====
+
+This repository is my fork to fix things not working for me.
+
+I maintain a git mirror of the original sources from the 
+subversion repo at sourceforge at http://git.astekk.se/pub/mirror/doxygen.
+
+==== end note
+
+
 DOXYGEN Version 1.8.3
 
 Please read INSTALL for compilation instructions.
