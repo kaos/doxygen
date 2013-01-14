@@ -59,7 +59,7 @@ install: doxywizard_install doxysearch_install
 	$(INSTTOOL) -d $(DESTDIR)$(INSTALL)/bin
 	$(INSTTOOL) -m 755 bin/doxygen        $(DESTDIR)$(INSTALL)/bin
 	$(INSTTOOL) -d $(DESTDIR)$(INSTALL)/$(MAN1DIR)
-	cat doc/doxygen.1    | sed -e "s/DATE/$(DATE)/g" -e "s/VERSION/$(VERSION)/g" > doxygen.1
+	cat doc/doxygen.1    | sed -e "s/DATE/$(DATE)/g" -e "s|VERSION|$(VERSION)|g" > doxygen.1
 	$(INSTTOOL) -m 644 doxygen.1 $(DESTDIR)$(INSTALL)/$(MAN1DIR)/doxygen.1
 	rm doxygen.1
 
