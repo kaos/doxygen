@@ -3,16 +3,16 @@
 # $Id$
 #
 # Copyright (C) 1997-2012 by Dimitri van Heesch.
-# 
+#
 # Permission to use, copy, modify, and distribute this software and its
-# documentation under the terms of the GNU General Public License is hereby 
-# granted. No representations are made about the suitability of this software 
+# documentation under the terms of the GNU General Public License is hereby
+# granted. No representations are made about the suitability of this software
 # for any purpose. It is provided "as is" without express or implied warranty.
 # See the GNU General Public License for more details.
-# 
+#
 # Documents produced by Doxygen are derivative works derived from the
 # input used in their production; they are not affected by this license.
-# 
+#
 # shell script to configure doxygen
 
 doxygen_version_major=1
@@ -20,7 +20,7 @@ doxygen_version_minor=8
 doxygen_version_revision=3
 
 #NOTE: Setting version_mmn to "NO" will omit mmn info from the package.
-doxygen_version_mmn=NO
+doxygen_version_mmn=github.com/kaos/doxygen
 
 bin_dirs=`echo $PATH | sed -e "s/:/ /g"`
 
@@ -111,27 +111,27 @@ done
 
 if test "$f_help" = y; then
   cat <<EOF
-Usage: $0 [--help] [--shared] [--static] [--release] [--debug] 
-          [--perl name] [--flex name] [--bison name] [--make name] 
-          [--dot name] [--platform target] [--prefix dir] [--docdir dir] 
-          [--install name] [--english-only] [--enable-langs list] 
+Usage: $0 [--help] [--shared] [--static] [--release] [--debug]
+          [--perl name] [--flex name] [--bison name] [--make name]
+          [--dot name] [--platform target] [--prefix dir] [--docdir dir]
+          [--install name] [--english-only] [--enable-langs list]
           [--with-doxywizard] [--with-doxysearch] [--with-doxyapp]
 
-Options: 
+Options:
 
   --help                Print this help
   --shared | --static   Build using shared or static linking
-		        [default: shared]
-  --release | --debug   Build for release or debug 
-		        [default: release]
-  --perl name           Use \`name' as the name of the perl interpreter 
-		        [default: autodetect]
-  --flex name           Use \`name' as the name of the GNU lexical scanner 
-		        [default: autodetect]
-  --bison name          Use \`name' as the name of the GNU compiler generator 
-		        [default: autodetect]
+                        [default: shared]
+  --release | --debug   Build for release or debug
+                        [default: release]
+  --perl name           Use \`name' as the name of the perl interpreter
+                        [default: autodetect]
+  --flex name           Use \`name' as the name of the GNU lexical scanner
+                        [default: autodetect]
+  --bison name          Use \`name' as the name of the GNU compiler generator
+                        [default: autodetect]
   --make name           Use \`name' as the name of the GNU make tool
-		        [default: autodetect]
+                        [default: autodetect]
   --dot name            Use \`name' as the name of the dot tool that
                         is part of the Graphviz package.
                         [default: autodetect]
@@ -145,8 +145,8 @@ Options:
   --install name        Use \`name' as the name of the GNU install tool
                         [default: autodetect]
   --english-only        Include support for English only.
-  --enable-langs list 	Include support for output languages listed in list.
-  			[default: $f_langs]
+  --enable-langs list   Include support for output languages listed in list.
+                        [default: $f_langs]
   --with-doxywizard     Build the GUI frontend for doxygen. This
                         requires Qt version 4.
   --with-doxysearch     Build external search tools (doxysearch and doxyindexer)
@@ -163,7 +163,7 @@ u_system=`(uname -s) 2>/dev/null` || u_system=unknown
 
 if test -z "$f_platform"; then
   f_platforms="`cat PLATFORMS`"
-  
+
   case "$u_system:$u_release" in
     AIX*)
       f_platform=aix-xlc
@@ -255,7 +255,7 @@ if test -z "$f_platform"; then
     done
     echo
     exit 2
-  esac 
+  esac
   echo "  Autodetected platform $f_platform... "
   f_plf_auto=YES
 fi
@@ -267,7 +267,7 @@ fi
 if test "$f_plf_auto" = NO; then
   echo -n "  Checking for platform $f_platform... "
   if test '!' -d tmake/lib/$f_platform; then
-    echo "not supported!" 
+    echo "not supported!"
     echo
     exit 2
   fi
@@ -275,7 +275,7 @@ if test "$f_plf_auto" = NO; then
 fi
 
 #- check for qt --------------------------------------------------------------
- 
+
 if test "$f_wizard" = YES; then
   if test -z "$QTDIR"; then
     echo "  QTDIR environment variable not set!"
@@ -314,7 +314,7 @@ if test "$f_search" = YES; then
     exit 2;
   fi
 fi
-   
+
 # - check for make ------------------------------------------------------------
 
 echo -n "  Checking for GNU make tool... "
@@ -332,7 +332,7 @@ if test "$f_make" = NO; then
       fi
     done
   done
-  f_make="$make_prog" 
+  f_make="$make_prog"
 fi
 
 if test "$f_make" = NO; then
@@ -361,7 +361,7 @@ if test "$f_insttool" = NO; then
       fi
     done
   done
-  f_insttool="$install_prog" 
+  f_insttool="$install_prog"
 fi
 
 if test "$f_insttool" = NO; then
@@ -391,7 +391,7 @@ if test "$f_dot" = NO; then
       break 2
     fi
   done
-  f_dot="$dot_prog" 
+  f_dot="$dot_prog"
 fi
 
 if test "$f_dot" = NO; then
@@ -419,7 +419,7 @@ if test "$f_perl" = NO; then
       fi
     done
   done
-  f_perl="$perl_prog" 
+  f_perl="$perl_prog"
 fi
 
 if test "$f_perl" = NO; then
@@ -447,7 +447,7 @@ if test "$f_flex" = NO; then
       break
     fi
   done
-  f_flex="$flex_prog" 
+  f_flex="$flex_prog"
 fi
 
 if test "$f_flex" = NO; then
@@ -471,7 +471,7 @@ if test "$f_bison" = NO; then
       break
     fi
   done
-  f_bison="$bison_prog" 
+  f_bison="$bison_prog"
 fi
 
 if test "$f_bison" = NO; then
@@ -678,7 +678,7 @@ done
 cat src/libdoxycfg.t.in | sed -e "s|%%FLEX%%|$f_flex|g" -e "s|%%BISON%%|$f_bison|g" > src/libdoxycfg.t
 cat src/libdoxygen.t.in | sed -e "s|%%FLEX%%|$f_flex|g" -e "s|%%BISON%%|$f_bison|g" > src/libdoxygen.t
 
-f_inprofiles="qtools/qtools.pro.in src/libdoxygen.pro.in src/libdoxycfg.pro.in src/doxygen.pro.in addon/doxywizard/doxywizard.pro.in addon/doxmlparser/src/doxmlparser.pro.in addon/doxmlparser/test/xmlparse.pro.in addon/doxmlparser/examples/metrics/metrics.pro.in libmd5/libmd5.pro.in addon/doxyapp/doxyapp.pro.in addon/doxysearch/doxysearch.pro.in addon/doxysearch/doxyindexer.pro.in" 
+f_inprofiles="qtools/qtools.pro.in src/libdoxygen.pro.in src/libdoxycfg.pro.in src/doxygen.pro.in addon/doxywizard/doxywizard.pro.in addon/doxmlparser/src/doxmlparser.pro.in addon/doxmlparser/test/xmlparse.pro.in addon/doxmlparser/examples/metrics/metrics.pro.in libmd5/libmd5.pro.in addon/doxyapp/doxyapp.pro.in addon/doxysearch/doxysearch.pro.in addon/doxysearch/doxyindexer.pro.in"
 
 for i in $f_inprofiles ; do
      SRC=$i
@@ -702,22 +702,22 @@ EOF
      echo "  Created $DST from $SRC..."
 done
 
-# - generating src/lang_cfg.h 
+# - generating src/lang_cfg.h
 
 if test -f "src/lang_cfg.h"; then
     chmod u+w src/lang_cfg.h   # make sure file can be overwritten
 fi
 echo -n "  Generating src/lang_cfg.h..."
-echo $f_langs | $f_perl -e '@l=split(/,/,<STDIN>); 
-        chomp @l; 
-	@allowed=(split(/,/,"NL,SV,CZ,FR,ID,IT,DE,JP,JE,ES,FI,RU,HR,PL,PT,HU,KR,KE,RO,SI,CN,NO,MK,BR,DK,SK,UA,GR,TW,SR,CA,LT,ZA,AR,FA,SC,VI,TR,EO,AM"));
-	foreach my $elem (@l){ 
-	     $elem =~ tr/a-z/A-Z/;
-	     $r=0;
-	     foreach my $tst (@allowed){
-		if ($tst eq $elem) { $r=1; last; } 		
-	     }	    
-	     if ($r!=1) { die "ERROR: Invalid language $elem was selected!\n"; } 
-	     print "#define LANG_$elem\n";
-        };' > ./src/lang_cfg.h   
+echo $f_langs | $f_perl -e '@l=split(/,/,<STDIN>);
+        chomp @l;
+        @allowed=(split(/,/,"NL,SV,CZ,FR,ID,IT,DE,JP,JE,ES,FI,RU,HR,PL,PT,HU,KR,KE,RO,SI,CN,NO,MK,BR,DK,SK,UA,GR,TW,SR,CA,LT,ZA,AR,FA,SC,VI,TR,EO,AM"));
+        foreach my $elem (@l){
+             $elem =~ tr/a-z/A-Z/;
+             $r=0;
+             foreach my $tst (@allowed){
+                if ($tst eq $elem) { $r=1; last; }
+             }
+             if ($r!=1) { die "ERROR: Invalid language $elem was selected!\n"; }
+             print "#define LANG_$elem\n";
+        };' > ./src/lang_cfg.h
 echo
